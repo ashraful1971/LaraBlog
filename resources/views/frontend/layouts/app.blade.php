@@ -9,10 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- Site Metas -->
-    <title>Markedia - Marketing Blog Template</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    @if(isset($post))
+    <title>{{ $post->title }} - {{ $post->category->name }}</title>
+    <meta name="keywords" content="{{ $post->title }}">
+    <meta name="description" content="{{ $post->excerpt() }}">
+    <meta name="author" content="{{ $post->user->name }}">
+    @else
+    <title>LaraBlog - Simple Blog Made With Laravel 8</title>
+    @endif
     
     <!-- Site Icons -->
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon" />

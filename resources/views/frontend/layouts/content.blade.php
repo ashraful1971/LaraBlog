@@ -1,4 +1,7 @@
 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+    @if(isset(request()->keyword))
+    <h1>Search results for: {{ request()->keyword }}</h1>
+    @endif
     <div class="page-wrapper">
         <div class="blog-custom-build">
             @forelse ($main_posts as $post)

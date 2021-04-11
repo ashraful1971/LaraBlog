@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\CategoryPageController;
 use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Frontend\PostPageController;
+use App\Http\Controllers\Frontend\SearchPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 Route::get('/category/{slug}', [CategoryPageController::class, 'show'])->name('category.page');
 Route::get('/post/{slug}', [PostPageController::class, 'show'])->name('post.page');
+Route::get('/search', [SearchPageController::class, 'index'])->name('search.page');
 
 
 

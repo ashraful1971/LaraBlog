@@ -10,21 +10,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
+                    @foreach ($categories as $category)
+                        @if($loop->iteration == 4)
+                            @break
+                        @endif
                     <li class="nav-item">
-                        <a class="nav-link" href="marketing-category.html">Marketing</a>
+                        <a class="nav-link" href="{{ route('category.page', $category->slug) }}">{{ $category->name }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="marketing-category.html">Make Money</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="marketing-blog.html">Blog</a>
-                    </li>
+                    @endforeach
                     <li class="nav-item">
                         <a class="nav-link" href="marketing-contact.html">Contact Us</a>
                     </li>
                 </ul>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="text" placeholder="How may I help?">
+                <form class="form-inline" action="{{ route('search.page') }}" method="GET">
+                    <input name="keyword" class="form-control mr-sm-2" type="text" placeholder="How may I help?">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
