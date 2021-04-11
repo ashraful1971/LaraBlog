@@ -19,9 +19,8 @@
                 <div class="blog-meta big-meta text-center">
                     <div class="post-sharing">
                         <ul class="list-inline">
-                            <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
-                            <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
-                            <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ route('post.page', $post->slug) }}" class="fb-button btn btn-primary"><i class="fab fa-facebook-f"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                            <li><a target="_blank" href="https://twitter.com/intent/tweet?url={{ route('post.page', $post->slug) }}&text={{ $post->title }}" class="tw-button btn btn-primary"><i class="fab fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
                         </ul>
                     </div><!-- end post-sharing -->
                     <h4><a href="{{ route('post.page', $post->slug) }}" title="">{{ $post->title }}</a></h4>
