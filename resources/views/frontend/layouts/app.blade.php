@@ -9,13 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- Site Metas -->
-    @if(isset($post))
-    <title>{{ $post->title }} - {{ $post->category->name }}</title>
+    @if(isset($title))
+    <title>{{ $title }} - {{ $category }}</title>
     <meta name="keywords" content="{{ $post->title }}">
     <meta name="description" content="{{ $post->excerpt() }}">
     <meta name="author" content="{{ $post->user->name }}">
     @else
-    <title>LaraBlog - Simple Blog Made With Laravel 8</title>
+    <title>{{ getOption('site_title') == '' ? 'LaraBlog - Simple Blog Made With Laravel 8' : getOption('site_title') }}</title>
     @endif
     
     <!-- Site Icons -->

@@ -37,7 +37,7 @@
                     <tbody>
                         @foreach($posts as $post)
                         <tr>
-                            <td>{{ 0 }}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->category->name }}</td>
                             <td>

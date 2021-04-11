@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PostController;
+use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\CategoryPageController;
 use App\Http\Controllers\Frontend\HomePageController;
@@ -52,6 +53,9 @@ Route::group([
 
     Route::resource('/category', CategoryController::class);
     Route::resource('/post', PostController::class);
+
+    Route::get('/settings', [SettingController::class, 'index'])->name('settings.page');
+    Route::put('/settings', [SettingController::class, 'storeOrUpdate'])->name('settings.update');
 });
 
 //For guest users

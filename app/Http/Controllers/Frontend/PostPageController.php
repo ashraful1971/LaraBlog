@@ -12,7 +12,9 @@ class PostPageController extends Controller
     {
         $this->data['posts'] = Post::latest()->get();
         $this->data['post'] = Post::where('slug', $slug)->first();
-        $this->data['realted_posts'] = Post::where('category_id', $this->data['post']->category_id)->orderBy('title', 'desc')->limit(2)->get();
+        $this->data['title'] = $this->data['post']->title;
+        $this->data['category'] = $this->data['post']->category->name;
+        $this->data['realted_posts'] = Post::where('category_id', $this->data['post']->category_id)->where('slug', '!=', $slug)->orderBy('id', 'desc')->limit(2)->get();
         $this->data['categories'] = Category::latest()->get();
 
         return view('frontend.postpage', $this->data);

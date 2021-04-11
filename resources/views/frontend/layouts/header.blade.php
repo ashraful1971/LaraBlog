@@ -4,16 +4,18 @@
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/version/market-logo.png') }}" alt=""></a>
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="{{ getOption('ads_banner') == '' ? asset('images/version/market-logo.png') : asset('storage/'.getOption('site_logo')) }}" alt="Logo" width="180">
+            </a>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
                     @foreach ($categories as $category)
-                        @if($loop->iteration == 4)
-                            @break
-                        @endif
+                    @if($loop->iteration == 4)
+                    @break
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('category.page', $category->slug) }}">{{ $category->name }}</a>
                     </li>

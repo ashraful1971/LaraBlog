@@ -5,9 +5,9 @@
             <div class="blog-list-widget">
                 <div class="list-group">
                     @forelse ($posts as $post)
-                        @if($loop->iteration == 6)
-                            @break
-                        @endif
+                    @if($loop->iteration == 6)
+                    @break
+                    @endif
                     <a href="{{ route('post.page', $post->slug) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="w-100 justify-content-between">
                             <img src="{{ asset('storage/'.$post->image) }}" alt="" class="img-fluid float-left">
@@ -26,7 +26,9 @@
             <h2 class="widget-title">Advertising</h2>
             <div class="banner-spot clearfix">
                 <div class="banner-img">
-                    <img src="{{ asset('images/banner_03.jpg') }}" alt="" class="img-fluid">
+                    <a href="{{ getOption('ads_link') == '' ? '#' : getOption('ads_link') }}" target="_blank">
+                        <img src="{{ getOption('ads_banner') == '' ? asset('images/banner_03.jpg') : asset('storage/'.getOption('ads_banner')) }}" alt="" class="img-fluid">
+                    </a>
                 </div><!-- end banner-img -->
             </div><!-- end banner -->
         </div><!-- end widget -->
@@ -50,8 +52,8 @@
             <h2 class="widget-title">Popular Categories</h2>
             <div class="link-widget">
                 <ul>
-                     @forelse ($categories as $category)
-                        <li><a href="{{ route('category.page', $category->slug) }}">{{ $category->name }} <span>({{ $category->posts->count() }})</span></a></li>
+                    @forelse ($categories as $category)
+                    <li><a href="{{ route('category.page', $category->slug) }}">{{ $category->name }} <span>({{ $category->posts->count() }})</span></a></li>
                     @empty
                     <li>No category found...</li>
                     @endforelse
