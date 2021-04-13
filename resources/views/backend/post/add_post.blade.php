@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group">
                     <label>Content</label>
-                    <textarea name="content" class="form-control" placeholder="Enter Content"></textarea>
+                    <textarea id="text_editor" name="content" class="form-control" placeholder="Enter Content"></textarea>
                 </div>
                 <div class="form-group">
                     <label>Featured Image</label>
@@ -56,5 +56,11 @@
         </div>
     </div>
 </div>
+
+@endsection
+
+@section('scripts')
+
+@include('backend/layouts.text_editor')
 
 @endsection

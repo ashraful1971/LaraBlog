@@ -1675,3 +1675,6 @@ hr.invis3 {
     border-radius: 50%
 }
 
+.blog-content .pp p img {
+    max-width: 100% !important;
+}

@@ -29,7 +29,7 @@
 
         <div class="blog-content">
             <div class="pp">
-                <p>{{ $post->content }}</p>
+                <p>{!! $post->content !!}</p>
             </div><!-- end pp -->
         </div><!-- end content -->
 
